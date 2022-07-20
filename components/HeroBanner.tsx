@@ -4,7 +4,7 @@ import { urlFor } from "../lib/client";
 
 const HeroBanner = ({ bannerData }) => {
 	return (
-		<div className="w-screen bg-gray-200 p-10 py-28 relative">
+		<div className="w-[90vw] bg-gray-200 p-10 py-28 relative mx-auto mt-5 rounded-xl">
 			<p>{bannerData.smallText}</p>
 			<p className="text-3xl font-bold">{bannerData.midText}</p>
 			<span className="inline-block text-5xl font-extrabold text-[80px] mr-4 text-white">
