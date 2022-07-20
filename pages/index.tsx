@@ -1,10 +1,9 @@
 import type { NextPage, GetServerSideProps } from "next";
 import Head from "next/head";
 import { client } from "../lib/client";
-import { Footer, FooterBanner, Product, HeroBanner } from "../components";
+import { FooterBanner, Product, HeroBanner } from "../components";
 
 const Home: NextPage = ({ products, bannerData }: any) => {
-	console.log("🚀 -> products", products);
 	return (
 		<div className=" min-h-screen overflow-hidden">
 			<Head>
@@ -22,7 +21,7 @@ const Home: NextPage = ({ products, bannerData }: any) => {
 						<Product product={product} key={product._id} />
 					))}
 				</div>
-				{/* <FooterBanner /> */}
+				<FooterBanner bannerData={bannerData[0]} />
 			</main>
 		</div>
 	);
