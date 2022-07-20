@@ -6,7 +6,7 @@ import { Footer, FooterBanner, Product, HeroBanner } from "../components";
 const Home: NextPage = ({ products, bannerData }: any) => {
 	console.log("🚀 -> products", products);
 	return (
-		<div className=" min-h-screen">
+		<div className=" min-h-screen overflow-hidden">
 			<Head>
 				<title>Create Next App</title>
 				<link rel="icon" href="/favicon.ico" />
@@ -17,8 +17,10 @@ const Home: NextPage = ({ products, bannerData }: any) => {
 					<h2 className="text-4xl font-bold">Best Selling Products</h2>
 					<p className="text-gray-400 mt-2">We have the best thing that you want</p>
 				</div>
-				<div className="container max-w-5xl mx-auto mt-10">
-					{products?.map((product) => product.name)}
+				<div className="container max-w-6xl mx-auto pb-10 grid grid-cols-4 cursor-pointer gap-5 mt-6 place-items-center">
+					{products?.map((product: any) => (
+						<Product product={product} key={product._id} />
+					))}
 				</div>
 				{/* <FooterBanner /> */}
 			</main>
@@ -29,8 +31,9 @@ const Home: NextPage = ({ products, bannerData }: any) => {
 export default Home;
 
 export const getServerSideProps: GetServerSideProps = async () => {
-	const query = '*[_type == "product"]';
-	const products = await client.fetch(query);
+	const query = '*[_type == "products"]';
+	const productsRes = await client.fetch(query);
+	const products = productsRes.filter((product: any) => product.details);
 
 	const bannerQuery = '*[_type == "banner"]';
 	const bannerData = await client.fetch(bannerQuery);

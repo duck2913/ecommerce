@@ -17,7 +17,7 @@ const HeroBanner = ({ bannerData }) => {
 				{bannerData.buttonText}
 			</button>
 			<img
-				src={urlFor(bannerData.image)}
+				src={urlFor(bannerData.image).url()}
 				alt=""
 				className="absolute top-0 left-[50%]  transform translate-x-[-50%] w-[25rem]"
 			/>
