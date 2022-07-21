@@ -5,7 +5,7 @@ const Navbar = () => {
 		<div className="w-[90vw] mx-auto flex justify-between items-center p-3 pt-5 ">
 			<div className="logo font-bold flex items-center gap-2">
 				<Aperture size={48} strokeWidth={2} color={"#d2797a"} />
-				<p className="text-slate-600">getgo</p>
+				<p className="text-slate-600">Getgo</p>
 			</div>
 			<button className="shopping-cart relative">
 				<ShoppingCart size={30} />
