@@ -1,10 +1,9 @@
 import React from "react";
 import { client, urlFor } from "../../lib/client";
 import { AiFillStar } from "react-icons/ai";
+import { Product } from "../../components";
 
 const ProductDetail = ({ product, products }) => {
-	console.log("🚀 -> products", products);
-	console.log("🚀 -> product", product);
 	return (
 		<div className="wrapper max-w-[85vw] mx-auto p-[3rem]">
 			<div className="grid grid-cols-2">
@@ -27,13 +26,13 @@ const ProductDetail = ({ product, products }) => {
 				</div>
 				<div className="description p-5">
 					<h3 className="font-bold text-2xl mb-4">{product.name}</h3>
-					<h3 className="flex text-red-400 items-center ">
+					<h3 className="flex text-red-400 items-center mb-2">
 						<AiFillStar />
 						<AiFillStar />
 						<AiFillStar />
 						<AiFillStar />
 						<AiFillStar />
-						<p className="ml-1 mb-2">(30)</p>
+						<p className="ml-1">(30)</p>
 					</h3>
 					<p className="font-semibold">Details:</p>
 					<p className="text-gray-500 mb-4">{product.details}</p>
@@ -54,6 +53,13 @@ const ProductDetail = ({ product, products }) => {
 				</div>
 			</div>
 			<h1 className="text-center mt-20 font-bold text-3xl">You may also like</h1>
+			<div className="marquee-container max-w-[85vw] mx-auto overflow-hidden mt-10 ">
+				<div className="track flex gap-10 p-3 w-[100vw]">
+					{products.map((product: any) => (
+						<Product product={product} key={product._id} />
+					))}
+				</div>
+			</div>
 		</div>
 	);
 };

@@ -1,3 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.track {
+	animation: marquee 30s infinite linear;
+}
+
+.track:hover {
+	animation-play-state: paused;
+}
+
+@keyframes marquee {
+	0% {
+		transform: translateX(0%);
+	}
+
+	100% {
+		transform: translateX(-80%);
+	}
+}

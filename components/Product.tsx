@@ -4,7 +4,7 @@ import { urlFor } from "../lib/client";
 
 const Product = ({ product }) => {
 	return (
-		<Link href={`product/${product.slug.current}`} passHref>
+		<Link href={`/product/${product.slug.current}`} passHref>
 			<div className="hover:transform hover:scale-105 transition-all">
 				<img
 					className="bg-gray-400 rounded-lg"
