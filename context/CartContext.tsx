@@ -12,7 +12,6 @@ export const CartContext = createContext<ContextProps>(null);
 export const ContextProvider = function ({ children }) {
 	const [openModal, setOpenModal] = useState(false);
 	const [cart, setCart] = useState<any[]>([]);
-	console.log("🚀 -> cart", cart);
 
 	const ctx = {
 		openModal,

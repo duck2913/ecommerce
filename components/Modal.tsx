@@ -14,17 +14,17 @@ const Modal = () => {
 		let updatedCart = cart;
 		const idx = updatedCart.findIndex((p) => p.name === product.name);
 		updatedCart[idx].quantity += 1;
-		console.log("🚀 -> updatedCart", updatedCart);
 		setCart(updatedCart);
+		console.log("🚀 -> updatedCart", updatedCart);
 	}
 
 	function decreaseQuantity(product: any) {
 		let updatedCart = cart;
-		if (product.quantity > 0) {
+		if (product.quantity > 1) {
 			const idx = updatedCart.findIndex((p) => p.name === product.name);
 			updatedCart[idx].quantity -= 1;
-			console.log("🚀 -> updatedCart", updatedCart);
 			setCart(updatedCart);
+			console.log("🚀 -> updatedCart", updatedCart);
 		} else {
 			updatedCart = updatedCart.filter((p) => p.name !== product.name);
 		}
