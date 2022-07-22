@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro&display=swap");
+
+html,
+body {
+	font-family: "Be Vietnam Pro";
+}
+
 .track {
 	animation: marquee 30s infinite linear;
 }
@@ -16,6 +23,6 @@
 	}
 
 	100% {
-		transform: translateX(-80%);
+		transform: translateX(-70%);
 	}
 }
