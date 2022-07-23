@@ -43,7 +43,6 @@ const ProductDetail = ({ product, products }) => {
 
 	return (
 		<>
-			{openModal && <Modal />}
 			<div className="wrapper max-w-[85vw] mx-auto p-[3rem]">
 				<div className="grid grid-cols-2">
 					<div className="imgs_container flex flex-col justify-center items-center">

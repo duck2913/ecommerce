@@ -5,6 +5,7 @@ const Navbar = () => {
 	const { setOpenModal, totalQuantities } = useContext(CartContext);
 
 	function openCartModal() {
+		console.log("open modal");
 		setOpenModal(true);
 	}
 

@@ -3,7 +3,6 @@ import React from "react";
 import { urlFor } from "../lib/client";
 
 const FooterBanner = ({ bannerData }) => {
-	console.log("🚀 -> bannerData", bannerData);
 	return (
 		<div className="w-[85vw] bg-red-500 p-10 py-28 relative mx-auto mb-5 rounded-xl grid grid-cols-2 text-white">
 			<div className="left">

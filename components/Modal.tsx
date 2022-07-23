@@ -1,11 +1,11 @@
 import React, { useContext, useState } from "react";
+import Link from "next/link";
 import { CartContext } from "../context/CartContext";
 import { urlFor } from "../lib/client";
 
 const Modal = () => {
 	const { setOpenModal, cart, setCart, setTotalQuantities } = useContext(CartContext);
 	const [lastUpdate, setLastUpdate] = useState(0);
-	console.log("🚀 -> cart", cart);
 
 	const totalPrice = cart.reduce(
 		(sum, currProduct) => sum + currProduct.price * currProduct.quantity,
@@ -17,7 +17,6 @@ const Modal = () => {
 		const idx = updatedCart.findIndex((p) => p.name === product.name);
 		updatedCart[idx].quantity += 1;
 		setCart(updatedCart);
-		console.log("🚀 -> updatedCart", updatedCart);
 		setLastUpdate(Date.now());
 		setTotalQuantities((prevTotal) => (prevTotal += 1));
 	}
@@ -28,7 +27,6 @@ const Modal = () => {
 			const idx = updatedCart.findIndex((p) => p.name === product.name);
 			updatedCart[idx].quantity -= 1;
 			setCart(updatedCart);
-			console.log("🚀 -> updatedCart", updatedCart);
 		} else {
 			updatedCart = updatedCart.filter((p) => p.name !== product.name);
 		}
@@ -94,12 +92,14 @@ const Modal = () => {
 							<span className="font-bold text-5xl ml-7 text-red-600">
 								{totalPrice}$
 							</span>
-							<button
-								className="mt-4 px-8 py-2 text-red-800 font-semibold bg-red-300 rounded-lg mb-3 ml-auto"
-								onClick={() => setOpenModal(false)}
-							>
-								Buy now
-							</button>
+							<Link href={"/success"} passHref>
+								<button
+									className="mt-4 px-8 py-2 text-red-800 font-semibold bg-red-300 rounded-lg mb-3 ml-auto"
+									onClick={() => setOpenModal(false)}
+								>
+									Buy now
+								</button>
+							</Link>
 						</div>
 					</>
 				)}
